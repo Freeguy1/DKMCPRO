@@ -1,4 +1,5 @@
 # Don't Kill My Cat Pro(DKMCPRO)
+[REMEMBER.....THIS README FILE ITS NOT UP TO DATE!!!]
 Don't kill my cat is a tool that generates obfuscated shellcode that is stored inside of polyglot images. The image is 100% valid and also 100% valid shellcode. The idea is to avoid sandbox analysis since it's a simple "legit" image. For now the tool rely on PowerShell the execute the final shellcode payload.
 
 Why it's called don't kill my cat? Since I suck at finding names for tools, I decided to rely on the fact that the default BMP image is a cat to name the tool. 
