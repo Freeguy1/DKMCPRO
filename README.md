@@ -119,6 +119,6 @@ GetRektBoy724
     
 -The .bmp can be controlled OVER-THE-AIR
 
--Have 'rawhex' module
+-Have 'rawhex' module that can make metasploit payloads with msfvenom
 
 REGULAR VERSION AT https://github.com/Mr-Un1k0d3r/DKMC.git
