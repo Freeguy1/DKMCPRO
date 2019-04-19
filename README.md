@@ -1,5 +1,4 @@
 # Don't Kill My Cat Pro(DKMCPRO)
-[REMEMBER.....THIS README FILE ITS NOT UP TO DATE!!!]
 Don't kill my cat is a tool that generates obfuscated shellcode that is stored inside of polyglot images. The image is 100% valid and also 100% valid shellcode. The idea is to avoid sandbox analysis since it's a simple "legit" image. For now the tool rely on PowerShell the execute the final shellcode payload.
 
 Why it's called don't kill my cat? Since I suck at finding names for tools, I decided to rely on the fact that the default BMP image is a cat to name the tool. 
@@ -7,7 +6,8 @@ Why it's called don't kill my cat? Since I suck at finding names for tools, I de
 Presentation on how it works internally can be found here: https://github.com/Mr-Un1k0d3r/DKMC/blob/master/DKMC%20presentation%202017.pdf
 
 # Basic Flow
-* Generate shellcode (meterpreter / Beacon)
+* Generate MSF Raw Shellcode
+* Generate shellcode for the image (meterpreter / Beacon)
 * Embed the obfuscated shellcode inside the image
 * PowerShell download the image and execute the image as shellcode
 * Get your shell
@@ -26,34 +26,61 @@ Launching DKMCPRO
 $ python dkmc.py
 
 
-DKMC - Don't kill my cat PRO
+DKMCPRO - Don't kill my cat PRO
          Evasion tool - GetRektBoy724
-     |\      _,,,---,,_
-    /,`.-'`'    -.  ;-;;,_
-   |,4-  ) )-,_..;\ (  `'-'
-  '---''(_/--'  `-'\_)    The sleepy cat
+          ____  _  ____  __  ____ ____  ____   ___
+         |  _ \| |/ /  \/  |/ ___|  _ \|  _ \ / _ \
+         | | | | ' /| |\/| | |   | |_) | |_) | | | |
+    _ _ _| |_| | . \| |  | | |___|  __/|  _ <| |_| | _ _
+   (_|_|_)____/|_|\_\_|  |_|\____|_|   |_| \_\___(_|_|_)
 
-----------------------------------------------------
+ [---] Created By: Muhammad Syihan Zhafiri (GetRektBoy724) [---]
+ [---]    Follow Me At https://github.com/GetRektBoy724    [---]
+ [---]                Codename: 'Mati Lampu'               [---]
+ [---]                   Version: v4.3                     [---]
+ [---]-----------------------------------------------------[---]
+ [---]        !!!PLEASE RUN THIS TOOL AS ROOT!!!           [---]
 Select an option:
 
-        [*] (gen)       Generate a malicious BMP image
+        [*] (gen)       Generate a malicious BMP (Bitmap) image
         [*] (web)       Start a web server and deliver malicious image
         [*] (ps)        Generate Powershell payload
         [*] (sc)        Generate shellcode from raw file
-        [*] (exit)      Quit the application
-        [*] (rawhex)    Generate metasploit raw and hex payload
+        [*] (rawhex)    Generate Metasploit Payload + install metasploit
+        [*] (winrawhex) Generate Metasploit Payload + install metasploit (WINDOWS MODULE)
+        [*] (exit)      Fucking Quit the application
 
 >>>
 ```
 
 Generate shellcode from a raw file
 ```
->>> sc
-(shellcode)>>> set source shellcode.txt
-        [+] source value is set.
+=======================================================================
+|                                                                     |
+| Module to generate shellcode out of raw metasploit shellcode file . |
+|                                                                     |
+=======================================================================
 
-(shellcode)>>> run
-        [+] Shellcode:
+
+Allowed options:
+
+        [*] (show)      Show module variables
+        [*] (set)       Set value (set key value)
+        [*] (exploit)   Run the module
+        [*] (exit)      Go back to the main menu
+        [*] (help)      Help command for the module
+
+Module Variables description:
+
+        source      Path to the raw shellcode file
+
+
+Current variable value:
+
+        source      =
+
+(root@dkmcpro:~/sc#)>>>
+ [+] Shellcode:
 \x41\x41\x41\x41
 ```
 
@@ -104,10 +131,9 @@ Built-in Web Server to deliver the image
 Final step require you to run the PowerShell oneliner on the victim system.
 
 # TODO
-Support more file format.
+Support More File Format On Rawhex And WinRawhex module
 
 # Credit
-Mr.Un1k0d3r RingZer0 Team 2016
 
 GetRektBoy724
 
@@ -119,6 +145,6 @@ GetRektBoy724
     
 -The .bmp can be controlled OVER-THE-AIR
 
--Have 'rawhex' module that can make metasploit payloads with msfvenom
+-Have 'rawhex' module and 'winrawhex' module that can make metasploit payloads with msfvenom
 
 REGULAR VERSION AT https://github.com/Mr-Un1k0d3r/DKMC.git
